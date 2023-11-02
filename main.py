@@ -228,9 +228,9 @@ class IPATool(object):
                 logger.fatal("failed to get app download info!")
                 raise StoreException('download', downResp, 'no songList')
             downInfo = downResp.songList[0]
-            logger.info('Got available version ids %s', downInfo.metadata.softwareVersionExternalIdentifiers)
+            logger.info('Got available version ids %s', downInfo.metadata)
             self._outputJson({
-                "appVerIds": downInfo.metadata
+                "appVerIds": downInfo.metadata.softwareVersionExternalIdentifiers
             })
         except StoreException as e:
             self._handleStoreException(e)
