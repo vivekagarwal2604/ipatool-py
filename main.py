@@ -230,7 +230,7 @@ class IPATool(object):
             downInfo = downResp.songList[0]
             logger.info('Got available version ids %s', downInfo.metadata.softwareVersionExternalIdentifiers)
             self._outputJson({
-                "appVerIds": downInfo.metadata.bundleShortVersionStrings
+                "appVerIds": downInfo.metadata
             })
         except StoreException as e:
             self._handleStoreException(e)
